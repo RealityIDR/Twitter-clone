@@ -18,6 +18,8 @@ import {
   deleteDoc,
   doc,
   onSnapshot,
+  orderBy,
+  query,
   setDoc,
 } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -30,6 +32,15 @@ function Post({ id, post, postPage }) {
   const [likes, setLikes] = useState([]);
   const [liked, setLiked] = useState(false);
   const router = useRouter();
+
+  useEffect( 
+    () =>
+      onSnapshot(
+        query(collection(db, "posts", id, "comments"), orderBy("timestamp", "desc")),
+        (snapshot) => setComments(snapshot.docs)
+      ),
+    [db, id]
+  );
 
   useEffect(
     () =>
