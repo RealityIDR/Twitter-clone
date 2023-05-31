@@ -1,4 +1,5 @@
 import {
+  ArrowsRightLeftIcon,
   ChartBarIcon,
   ChatBubbleOvalLeftEllipsisIcon,
   EllipsisHorizontalIcon,
@@ -165,7 +166,7 @@ function Post({ id, post, postPage }) {
           ) : (
             <div className="flex items-center space-x-1 group">
               <div className="icon group-hover:bg-green-500/10">
-                <SwitchHorizontalIcon className="h-5 group-hover:text-green-500" />
+                <ArrowsRightLeftIcon className="h-5 group-hover:text-green-500" />
               </div>
             </div>
           )}
